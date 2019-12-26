@@ -31,6 +31,14 @@ $this->params['breadcrumbs'][] = $this->title;
             'year_of_birth',
             'rating',
 
+            [
+                'format' => 'raw',
+                'value' => function ($data) {
+                    return Html::a('Books', ['books', 'id' => $data->id], ['class' => 'btn btn-success']);
+                },
+                'label' => 'Books',
+            ],
+
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
