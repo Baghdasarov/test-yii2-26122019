@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\models\Authors;
 use Yii;
 use app\models\Books;
 use app\models\BooksSearch;
@@ -71,8 +72,11 @@ class BooksController extends Controller
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
+        $authors = Authors::find()->select('name')->indexBy('id')->column();
+
         return $this->render('create', [
             'model' => $model,
+            'authors' => $authors,
         ]);
     }
 

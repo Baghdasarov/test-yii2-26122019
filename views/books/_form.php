@@ -5,6 +5,7 @@ use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Books */
+/* @var array $authors app\models\Authors */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
@@ -12,7 +13,7 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'author')->textInput() ?>
+    <?= $form->field($model, 'author')->dropDownList($authors) ?>
 
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
 
