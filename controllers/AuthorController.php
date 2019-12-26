@@ -136,6 +136,7 @@ class AuthorController extends Controller
         $search['BooksSearch']['author'] = $id;
 
         $dataProvider = $searchModel->search($search);
+        $dataProvider->setSort(['defaultOrder' => ['year' => SORT_ASC]]);
 
         return $this->render('books', [
             'searchModel' => $searchModel,

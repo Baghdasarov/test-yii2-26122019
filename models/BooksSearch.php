@@ -16,7 +16,7 @@ class BooksSearch extends Books
     public function rules()
     {
         return [
-            [['id', 'author', 'rating'], 'integer'],
+            [['id', 'author', 'rating', 'year'], 'integer'],
             [['name'], 'safe'],
         ];
     }
@@ -60,6 +60,7 @@ class BooksSearch extends Books
             'id' => $this->id,
             'author' => $this->author,
             'rating' => $this->rating,
+            'year' => $this->year,
         ]);
 
         $query->andFilterWhere(['like', 'name', $this->name]);

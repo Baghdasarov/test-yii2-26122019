@@ -12,6 +12,7 @@ use yii\helpers\Url;
  * @property int $author
  * @property string $name
  * @property int|null $rating
+ * @property int|null $year
  *
  * @property Authors $author0
  */
@@ -32,7 +33,7 @@ class Books extends \yii\db\ActiveRecord
     {
         return [
             [['author', 'name'], 'required'],
-            [['author', 'rating'], 'integer'],
+            [['author', 'rating', 'year'], 'integer'],
             [['name'], 'string', 'max' => 255],
             [['author'], 'exist', 'skipOnError' => true, 'targetClass' => Authors::className(), 'targetAttribute' => ['author' => 'id']],
         ];
