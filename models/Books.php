@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Yii;
+use yii\helpers\Url;
 
 /**
  * This is the model class for table "books".
@@ -56,5 +57,13 @@ class Books extends \yii\db\ActiveRecord
     public function getAuthor0()
     {
         return $this->hasOne(Authors::className(), ['id' => 'author']);
+    }
+
+    public function getAuthorLink()
+    {
+        $url = Url::toRoute(['author/view', 'id' => $this->author0->id]);
+        $author = $this->author0->name;
+
+        return '<a href="' . $url . '">' . $author . '</a>';
     }
 }

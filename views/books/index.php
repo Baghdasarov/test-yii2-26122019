@@ -27,7 +27,14 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             'id',
-            'author',
+            [
+                'attribute' => 'author0.name',
+                'label' => 'Author',
+                'value' => function($model) {
+                    return $model->authorlink;
+                },
+                'format'=> 'html'
+            ],
             'name',
             'rating',
 

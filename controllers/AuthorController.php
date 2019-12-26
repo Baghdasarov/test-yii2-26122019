@@ -37,6 +37,7 @@ class AuthorController extends Controller
     {
         $searchModel = new AuthorsSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $dataProvider->setSort(['defaultOrder' => ['rating' => SORT_DESC]]);
 
         return $this->render('index', [
             'searchModel' => $searchModel,

@@ -42,6 +42,8 @@ class BooksSearch extends Books
     {
         $query = Books::find();
 
+        $query->joinWith(['author0']);
+
         // add conditions that should always apply here
 
         $dataProvider = new ActiveDataProvider([

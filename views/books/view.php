@@ -30,7 +30,11 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'id',
-            'author',
+            [
+                'attribute' => 'author',
+                'value' => $model->authorlink,
+                'format'=> 'html'
+            ],
             'name',
             'rating',
         ],
