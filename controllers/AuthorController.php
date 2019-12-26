@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\models\BooksSearch;
 use Yii;
 use app\models\Authors;
 use app\models\AuthorsSearch;
@@ -126,5 +127,20 @@ class AuthorController extends Controller
         }
 
         throw new NotFoundHttpException('The requested page does not exist.');
+    }
+
+    public function actionBooks($id)
+    {
+        $searchModel = new BooksSearch();
+        $search = Yii::$app->request->queryParams;
+        $search['BooksSearch']['author'] = $id;
+
+        $dataProvider = $searchModel->search($search);
+
+        return $this->render('books', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+            'model' => $this->findModel($id)
+        ]);
     }
 }

@@ -24,6 +24,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'method' => 'post',
             ],
         ]) ?>
+        <?= Html::a('Books', ['books', 'id' => $model->id], ['class' => 'btn btn-success'])?>
     </p>
 
     <?= DetailView::widget([

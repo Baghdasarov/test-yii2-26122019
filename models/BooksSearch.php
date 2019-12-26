@@ -4,7 +4,6 @@ namespace app\models;
 
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\models\Books;
 
 /**
  * BooksSearch represents the model behind the search form of `app\models\Books`.
@@ -41,8 +40,6 @@ class BooksSearch extends Books
     public function search($params)
     {
         $query = Books::find();
-
-        $query->joinWith(['author0']);
 
         // add conditions that should always apply here
 
